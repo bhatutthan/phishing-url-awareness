@@ -61,18 +61,15 @@ Goodbye! Stay alert online.
 ```
 
 ## Testing
-
-I use five sample strings. The Expected column comes from the program logic. The Actual and Result columns stay pending until I run each input on my own computer and compare the output.
-
 | # | Input | Expected | Actual | Result |
 |---|-------|----------|--------|--------|
-| 1 | `https://www.example.com/login` | No listed warning signs found. This does NOT prove safety. No review summary. |No listed warning signs found. This does NOT prove safety. Never enter passwords from unexpected links.| PASS |
-| 2 | `http://192.0.2.10/account` | Uses an IP address instead of a familiar domain. Then: Uses HTTP. HTTPS alone does not prove trust. Summary: REVIEW CAREFULLY: 2 warning sign(s) found. | - Uses an IP address instead of a familiar domain.- Uses HTTP. HTTPS alone does not prove trust.REVIEW CAREFULLY: 2 warning sign(s) found. Never enter passwords from unexpected links. | PASS |
-| 3 | `http://example.com@sample.invalid/login` | Contains an @ symbol; inspect carefully. Then: Uses HTTP. HTTPS alone does not prove trust. Summary: REVIEW CAREFULLY: 2 warning sign(s) found. |Uses an IP address instead of a familiar domain. Uses HTTP. HTTPS alone does not prove trust. REVIEW CAREFULLY: 2 warning sign(s) found. Never enter passwords from unexpected links. | PASS |
-| 4 | `https://a.b.c.d.e.example.invalid/path` | Contains many hostname segments/subdomains. Summary: REVIEW CAREFULLY: 1 warning sign(s) found. | Contains many hostname segments/subdomains.REVIEW CAREFULLY: 1 warning sign(s) found. Never enter passwords from unexpected links. | PASS |
-| 5 | `https://xn--example.invalid/` | Contains a punycode-style hostname. Summary: REVIEW CAREFULLY: 1 warning sign(s) found. | Contains a punycode-style hostname.REVIEW CAREFULLY: 1 warning sign(s) found.Never enter passwords from unexpected links. | PASS |
+| 1 | https://www.example.com/login | No warning signs | No listed warning signs found. This does NOT prove safety. | PASS |
+| 2 | http://192.0.2.10/account | IP address + HTTP | Uses an IP address instead of a familiar domain. / Uses HTTP. HTTPS alone does not prove trust. | PASS |
+| 3 | http://example.com@sample.invalid/login | @ symbol + HTTP | Contains an @ symbol; inspect carefully. / Uses HTTP. HTTPS alone does not prove trust. | PASS |
+| 4 | https://a.b.c.d.e.example.invalid/path | Many hostname segments | Contains many hostname segments/subdomains. | PASS |
+| 5 | https://xn--example.invalid/ | Punycode-style hostname | Contains a punycode-style hostname. | PASS |
 
-The detailed testing record is in `tests/test_samples.md`.
+The full table, including my bonus checks, is in `tests/test_samples.md`. I ran all five tests again after adding my two improvements, and they all still PASS.
 
 ## Screenshots
 
@@ -108,8 +105,7 @@ This project is for defensive learning. I should never open a suspicious link ju
 
 ## Author
 
-- Name: [Utthan Bhat]
-- Batch or course: [Ewb AI POWERED CYBERSECURITY INTERNSHIP]
-- GitHub username: [bhatutthan]
-- Repository URL: []
-- Submission date: [DATE]
+- Name: Utthan Bhat
+- Batch or course: Ewb AI POWERED CYBERSECURITY INTERNSHIP
+- GitHub username: bhatutthan
+- Repository URL: https://github.com/bhatutthan/phishing-url-awareness
